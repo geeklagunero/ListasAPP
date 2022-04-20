@@ -18,27 +18,45 @@ protocol ListDetailViewControllerDelegate: AnyObject {
 }
 
 
-class ListDetailViewController: UITableViewController, UITextFieldDelegate {
+class ListDetailViewController: UITableViewController, UITextFieldDelegate, IconPickerViewControllerDelegate {
+    func iconPicker(_ picker: IconPickerViewController, didPick iconName: String) {
+        self.iconName = iconName
+        iconImage.image = UIImage(named: iconName)
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     @IBOutlet var textField: UITextField!
+    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet var doneBarButton: UIBarButtonItem!
     
     weak var delegate: ListDetailViewControllerDelegate?
     
     var checklistToEdit: Checklist?
+    var iconName = "Folder"
     
     override func viewDidLoad() {
         if let checklist = checklistToEdit {
             //ase referencia ala variable global del scena title
             title = "Edit CheckList"
             textField.text = checklist.name
+            iconName = checklist.iconName
             doneBarButton.isEnabled = true
         }
+        
+        iconImage.image = UIImage(named: iconName)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //cuando se vaya a mostrar esta vista le decimos que queremos el foto o el primer responder al textField
         textField.becomeFirstResponder()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickIcon" {
+            let controller = segue.destination as! IconPickerViewController
+            controller.delegate = self
+          }
     }
     
     @IBAction func cancel(){
@@ -53,9 +71,11 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
 //        navigationController?.popViewController(animated: true)
         if let checklist = checklistToEdit {
             checklist.name = textField.text!
+            checklist.iconName = iconName
             delegate?.ListDetailViewController(self, didFinishEditing: checklist)
         } else {
             let checklist = Checklist(name: textField.text!)
+            checklist.iconName = iconName
             checklist.name = textField.text!
             delegate?.ListDetailViewController(self, didFinishAdding: checklist)
         }
@@ -64,7 +84,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+        return indexPath.section == 1 ? indexPath : nil
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

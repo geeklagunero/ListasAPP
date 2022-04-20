@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0E4FBA280F4A2C005A3C37 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0E4FB9280F4A2C005A3C37 /* IconPickerViewController.swift */; };
 		8C1C2CA42801BF6F00D95CF8 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C2CA32801BF6F00D95CF8 /* AllListsViewController.swift */; };
 		8C1C2CA628022E9500D95CF8 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C2CA528022E9500D95CF8 /* Checklist.swift */; };
 		8C1C2CA828024CD000D95CF8 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C2CA728024CD000D95CF8 /* ListDetailViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C0E4FB9280F4A2C005A3C37 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 		8C1C2CA32801BF6F00D95CF8 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		8C1C2CA528022E9500D95CF8 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		8C1C2CA728024CD000D95CF8 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				8C9BE6A027F260C700E64D8A /* ChecklistViewController.swift */,
 				8C6F87BA27F663F700BA6C10 /* ItemDetailViewController.swift */,
 				8C1C2CA728024CD000D95CF8 /* ListDetailViewController.swift */,
+				8C0E4FB9280F4A2C005A3C37 /* IconPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				8C6F87BB27F663F700BA6C10 /* ItemDetailViewController.swift in Sources */,
 				8C9BE6A127F260C700E64D8A /* ChecklistViewController.swift in Sources */,
 				8C1C2CA42801BF6F00D95CF8 /* AllListsViewController.swift in Sources */,
+				8C0E4FBA280F4A2C005A3C37 /* IconPickerViewController.swift in Sources */,
 				8C9BE69D27F260C700E64D8A /* AppDelegate.swift in Sources */,
 				8C9BE69F27F260C700E64D8A /* SceneDelegate.swift in Sources */,
 				8C69728127F50E7E004833FA /* ChecklistItem.swift in Sources */,
